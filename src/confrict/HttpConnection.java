@@ -6,7 +6,7 @@ import java.net.URL;
 public class HttpConnection {
 	//指定のURLに、Getリクエスト
 	public void sendGet() {
-		String getUrl = "http://localhost:8080/sample11/CounterServlet_field";
+		String getUrl = "http://localhost:8080/sample11/CounterServlet_Listener";
 		HttpURLConnection connection = null;
 
 		try {
