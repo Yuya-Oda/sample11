@@ -24,13 +24,27 @@ public class CounterServlet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
+		/*
+		 * ① 何らかのパラメーターを受け取って初期化処理をおこなう場合
+		 * → パラメータありのinitメソッド
+		 *
+		 * ② 決まった初期化処理をおこなう場合
+		 * → パラメータなしのinitメソッド
+		 */
+		super.init(config); // 制約あり（記述必須：教科書P.315）
+//		super.init();		 // 記述の制約なし
 
 		// 訪問回数を表すIntegerインスタンスを新規作成しアプリケーションスコープに保存
 		Integer count = 0;
+
 		ServletContext application = config.getServletContext();
+//										↑ 引数のインスタンスでもOK
+//										↓ 自身のインスタンスでもOK
+//		ServletContext application = this.getServletContext();
+
 		application.setAttribute("count", count);
 
+		// init()が実行されているかの確認のためコンソールに表示
 		System.out.println("init()が実行されました");
 	}
 
@@ -73,6 +87,7 @@ public class CounterServlet extends HttpServlet {
 	}
 
 	public void destroy() {
+		// destroy()が実行されているかの確認のためコンソールに表示
 		System.out.println("destroy()が実行されました。");
 	}
 
