@@ -17,13 +17,13 @@ import javax.servlet.ServletResponse;
 //		initParams = {
 //				@WebInitParam( name = "encode", value = "UTF-8" )
 //		})
-public class FilterSample implements Filter {
+public class EncodingFilter implements Filter {
 	String encode;
 
     /**
      * Default constructor.
      */
-    public FilterSample() {
+    public EncodingFilter() {
         // TODO Auto-generated constructor stub
     }
 
